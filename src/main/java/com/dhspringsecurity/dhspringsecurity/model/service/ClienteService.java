@@ -4,9 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.dhspringsecurity.dhspringsecurity.model.entity.Cliente;
 import com.dhspringsecurity.dhspringsecurity.model.entity.Pedido;
@@ -24,13 +21,11 @@ public class ClienteService {
 		this.pedidoRepository = pedidoRepository;
 	}
 	
-	@GetMapping
-	public ResponseEntity<Iterable<Cliente>> getAllClientes() {
+	public ResponseEntity<Iterable<Cliente>> listarClientes() {
 		return new ResponseEntity<Iterable<Cliente>>(clienteRepository.findAll(), HttpStatus.OK);
 	}
 	
-	@PostMapping("/cadastrarCliente")
-	public ResponseEntity<Object> cadastrarCliente(@RequestBody Cliente cliente) {
+	public ResponseEntity<Object> cadastrarCliente(Cliente cliente) {
 		if (cliente == null) {
 			return ResponseEntity.badRequest().body("Erro ao cadastrar cliente!");
 		}
@@ -38,16 +33,11 @@ public class ClienteService {
 		return ResponseEntity.ok("Cliente cadastrado com sucesso!");
 	}
 	
-	@PostMapping("/cadastrarPedido")
-	public ResponseEntity<Object> cadastrarPedido(@RequestBody Pedido pedido) {
+	public ResponseEntity<Object> cadastrarPedido(Pedido pedido) {
 		if (pedido == null) {
 			return ResponseEntity.badRequest().body("Erro ao cadastrar pedido!");
 		}
 		pedidoRepository.save(pedido);
 		return ResponseEntity.ok("Pedido cadastrado com sucesso!");		
 	}
-
-	
-	
-
 }
