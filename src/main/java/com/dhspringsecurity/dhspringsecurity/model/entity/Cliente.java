@@ -11,16 +11,6 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idCliente;
 	private String nome;
-	
-//	public Cliente() {
-//
-//	}
-	
-	
-//	public Cliente(Integer idCliente, String nome) {
-//		this.idCliente = idCliente;
-//		this.nome = nome;
-//	}
 
 
 	public Integer getIdCliente() {

@@ -8,12 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dhspringsecurity.dhspringsecurity.model.entity.Autorizacao;
-import com.dhspringsecurity.dhspringsecurity.model.entity.Cliente;
 import com.dhspringsecurity.dhspringsecurity.model.entity.Funcionario;
 import com.dhspringsecurity.dhspringsecurity.model.repository.AutorizacaoRepository;
 import com.dhspringsecurity.dhspringsecurity.model.repository.FuncionarioRepository;
@@ -52,5 +53,23 @@ public class FuncionarioController {
 		funcionarioRepository.deleteById(id);
 		autorizacaoRepository.deleteById(funcionario.getEmail());
 		return new ResponseEntity<Funcionario>(funcionario,HttpStatus.ACCEPTED);
+	}
+	
+	@PutMapping("/reajustarSalario/{id}")
+	public ResponseEntity<Funcionario> reajustarSalario(@PathVariable Integer id, @RequestParam("salario") double salario ){
+		Optional<Funcionario> optFuncionario = funcionarioRepository.findById(id);
+		if(optFuncionario.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		Funcionario funcionario =  optFuncionario.get();
+		String cargo = autorizacaoRepository.findById(funcionario.getEmail()).get().getAutoridade();
+		
+		if (cargo.contains("GERENTE")) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		funcionario.setSalario(salario);
+		funcionarioRepository.save(funcionario);
+		
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 }

@@ -10,12 +10,9 @@ public class TipoFuncionario {
 	private Integer idTipoFuncionario;
 	private String tipoFuncionario;
 	private Integer idFuncionario;
-	
-		
-//	public TipoFuncionario() {
-//	}
-	
-	
+			
+	public TipoFuncionario() {
+	}
 	
 	public TipoFuncionario(Integer idTipoFuncionario, String tipoFuncionario, Integer idFuncionario) {
 
@@ -23,9 +20,7 @@ public class TipoFuncionario {
 		this.tipoFuncionario = tipoFuncionario;
 		this.idFuncionario = idFuncionario;
 	}
-
-
-
+	
 	public Integer getIdTipoFuncionario() {
 		return idTipoFuncionario;
 	}
