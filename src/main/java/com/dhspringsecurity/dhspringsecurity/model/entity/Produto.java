@@ -7,8 +7,20 @@ import javax.persistence.Id;
 public class Produto {
 	@Id
 	private Integer idProduto;
-	private String nome;
+	private String nome;	
+		
+	public Produto() {
+
+	}
 	
+	
+	public Produto(Integer idProduto, String nome) {
+		super();
+		this.idProduto = idProduto;
+		this.nome = nome;
+	}
+
+
 	public Integer getIdProduto() {
 		return idProduto;
 	}

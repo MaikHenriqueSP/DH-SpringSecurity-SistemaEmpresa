@@ -15,6 +15,23 @@ public class Funcionario {
 	private LocalTime pontoSaida;
 	private double salario;
 	
+		
+	public Funcionario() {
+
+	}
+	
+	
+	public Funcionario(Integer idFuncionario, String nome, String email, LocalTime pontoEntrada, LocalTime pontoSaida,
+			double salario) {
+		this.idFuncionario = idFuncionario;
+		this.nome = nome;
+		this.email = email;
+		this.pontoEntrada = pontoEntrada;
+		this.pontoSaida = pontoSaida;
+		this.salario = salario;
+	}
+
+
 	public Integer getIdFuncionario() {
 		return idFuncionario;
 	}
