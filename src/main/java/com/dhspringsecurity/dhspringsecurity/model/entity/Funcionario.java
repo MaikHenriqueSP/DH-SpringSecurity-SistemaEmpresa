@@ -3,34 +3,43 @@ package com.dhspringsecurity.dhspringsecurity.model.entity;
 import java.time.LocalTime;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Funcionario {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idFuncionario;
 	private String nome;
 	private String email;
+	private String senha;
 	private LocalTime pontoEntrada;
 	private LocalTime pontoSaida;
 	private double salario;
 	
 		
-	public Funcionario() {
-
-	}
+//	public Funcionario() {
+//
+//	}
 	
-	
-	public Funcionario(Integer idFuncionario, String nome, String email, LocalTime pontoEntrada, LocalTime pontoSaida,
-			double salario) {
-		this.idFuncionario = idFuncionario;
-		this.nome = nome;
-		this.email = email;
-		this.pontoEntrada = pontoEntrada;
-		this.pontoSaida = pontoSaida;
-		this.salario = salario;
-	}
-
+//	public Funcionario(Integer idFuncionario, String nome, String email, double salario) {
+//		this.idFuncionario = idFuncionario;
+//		this.nome = nome;
+//		this.email = email;
+//		this.salario = salario;
+//	}
+//	
+//	public Funcionario(Integer idFuncionario, String nome, String email, LocalTime pontoEntrada, LocalTime pontoSaida,
+//			double salario) {
+//		this.idFuncionario = idFuncionario;
+//		this.nome = nome;
+//		this.email = email;
+//		this.pontoEntrada = pontoEntrada;
+//		this.pontoSaida = pontoSaida;
+//		this.salario = salario;
+//	}
 
 	public Integer getIdFuncionario() {
 		return idFuncionario;
@@ -67,6 +76,14 @@ public class Funcionario {
 	}
 	public void setSalario(double salario) {
 		this.salario = salario;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	

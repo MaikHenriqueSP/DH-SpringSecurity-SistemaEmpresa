@@ -9,16 +9,16 @@ public class Produto {
 	private Integer idProduto;
 	private String nome;	
 		
-	public Produto() {
-
-	}
-	
-	
-	public Produto(Integer idProduto, String nome) {
-		super();
-		this.idProduto = idProduto;
-		this.nome = nome;
-	}
+//	public Produto() {
+//
+//	}
+//	
+//	
+//	public Produto(Integer idProduto, String nome) {
+//		super();
+//		this.idProduto = idProduto;
+//		this.nome = nome;
+//	}
 
 
 	public Integer getIdProduto() {

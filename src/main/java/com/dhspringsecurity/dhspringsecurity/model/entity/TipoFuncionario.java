@@ -12,8 +12,8 @@ public class TipoFuncionario {
 	private Integer idFuncionario;
 	
 		
-	public TipoFuncionario() {
-	}
+//	public TipoFuncionario() {
+//	}
 	
 	
 	
